@@ -1,0 +1,10 @@
+{
+	"files.associations": {
+		"struct_timespec.h": "c",
+		"get_next_line_bonus.h": "c",
+		"pipex_bonus.h": "c",
+		"get_next_line.h": "c",
+		"stdio.h": "c",
+		"libft.h": "c"
+	}
+}

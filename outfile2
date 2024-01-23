@@ -1,0 +1,16 @@
+LIBFT			=	libft.a
+SRCS_NAMES		=	main.c  ft_split.c utils.c get_next_line.c get_next_line_utils.c
+SRCS_NAMES_B	=	main.c  misc.c	fork.c 	utils.c
+HEAD			=	-Ilibft/includes -Iincludes
+CFLAGS			=	-g3 -Wall -Werror -Wextra
+all				:	${NAME}
+	make -C libft
+	mv libft/libft.a .
+	make -C libft
+	mv libft/libft.a .
+clean:
+	make clean -C libft
+fclean:	clean
+	make fclean -C libft
+re:	fclean all
+.PHONY:	all clean fclean re bonus
