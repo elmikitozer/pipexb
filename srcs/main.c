@@ -6,7 +6,7 @@
 /*   By: myevou <myevou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 02:29:04 by myevou            #+#    #+#             */
-/*   Updated: 2024/01/23 17:22:43 by myevou           ###   ########.fr       */
+/*   Updated: 2024/01/23 23:53:36 by myevou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,10 @@ void	redirection_files(t_args *args, int index)
 	if (index == args->nbcmds - 1)
 		fd = open(args->out, O_RDWR | args->flag | O_CREAT, 0666);
 	if (fd < 0)
-	fprintf(stderr, "error: %s\n", strerror(errno)), exit(1);
+	{
+		fprintf(stderr, "error: %s\n", strerror(errno));
+		exit(1);
+	}
 	dup2(fd, index == args->nbcmds - 1);
 	close(fd);
 }

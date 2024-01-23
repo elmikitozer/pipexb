@@ -46,7 +46,7 @@ all				:	${NAME}
 
 define progress_bar
 	@$(eval PERCENT=$(shell echo $$((($(CURRENT_FILES) + 1) * 100 / $(TOTAL_FILES)))))
-	@printf " ["
+	@printf "["
 	@printf "%-50s" "$$(for i in `seq 1 $$(($(PERCENT) / 4))`; do printf "🟩"; done)"
 	@printf "] %d%%\r" $(PERCENT)
 endef

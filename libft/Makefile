@@ -32,11 +32,11 @@ CC = gcc
 CFLAGS = -Wall -Werror -Wextra -I ./
 
 .c.o:
-		${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
+		@${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
 
 ${LIB}:	${OBJS}
 		@ar -rsc ${LIB} ${OBJS}
-		@echo "$(GREEN)Libft library compiled successfully$(END)"
+		@echo "\n$(GREEN)Libft library compiled successfully$(END)"
 
 bonus:	${OBJSALL}
 		@ar -rsc ${LIB} ${OBJSALL}
@@ -45,11 +45,11 @@ bonus:	${OBJSALL}
 all: 	${LIB}
 
 clean:
-		rm -f ${OBJSALL}
+		@rm -f ${OBJSALL}
 		@echo "$(YELLOW)Object files cleaned$(END)"
 
 fclean:	clean
-		rm -f ${LIB}
+		@rm -f ${LIB}
 		@echo "$(YELLOW)Library file cleaned$(END)"
 
 re:	fclean all
