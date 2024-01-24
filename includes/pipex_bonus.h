@@ -6,7 +6,7 @@
 /*   By: myevou <myevou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 00:45:48 by myevou            #+#    #+#             */
-/*   Updated: 2024/01/23 17:22:13 by myevou           ###   ########.fr       */
+/*   Updated: 2024/01/24 02:05:22 by myevou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ void	ft_freetab(char **tab);
 void	waitprocess(t_args *args);
 void	here_doc(t_args *args, char *delim);
 void	initargs(t_args *args, char **av, char **env, int ac);
-
 
 // SPLIT
 // char	**ft_split(char const *s, char c);

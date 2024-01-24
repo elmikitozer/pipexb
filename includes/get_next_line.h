@@ -6,7 +6,7 @@
 /*   By: myevou <myevou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 15:43:24 by myevou            #+#    #+#             */
-/*   Updated: 2024/01/23 16:05:49 by myevou           ###   ########.fr       */
+/*   Updated: 2024/01/24 02:04:53 by myevou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,14 @@
 #  define BUFFER_SIZE 1
 # endif
 
- typedef struct s_list
+typedef struct s_list
 {
 	char			*content;
 	struct s_list	*next;
 }		t_list;
 t_list	*ft_lstlast(t_list *stash);
 void	extract_line(t_list *stash, char **line);
-size_t		ft_strlen(const char *str);
+size_t	ft_strlen(const char *str);
 int		found_line(t_list *stash);
 void	generate_line(t_list *stash, char **line);
 void	add_to_stash(t_list **stash, char *buff, int read_count);
