@@ -6,7 +6,7 @@
 /*   By: myevou <myevou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 02:29:04 by myevou            #+#    #+#             */
-/*   Updated: 2024/01/24 03:22:15 by myevou           ###   ########.fr       */
+/*   Updated: 2024/01/24 03:37:03 by myevou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	redirection_files(t_args *args, int index)
 		fd = open(args->out, O_RDWR | args->flag | O_CREAT, 0666);
 	if (fd < 0)
 	{
-		fprintf(stderr, "errddor: %s\n", strerror(errno));
+		fprintf(stderr, "pipex: %s\n", strerror(errno));
 		exit(127);
 	}
 	dup2(fd, index == args->nbcmds - 1);
