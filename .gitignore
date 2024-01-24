@@ -1,0 +1,8 @@
+*.a
+*.o
+*.txt
+*.out
+*.pdf
+/pipex*
+/PIPEX*
+libft.so

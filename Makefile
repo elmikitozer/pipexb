@@ -12,13 +12,13 @@ LIBFT			=	libft.a
 
 DIR_SRCS		=	srcs/
 
-DIR_BONUS		=	srcs/bonus
+DIR_BONUS		=	srcs/
 
 DIR_OBJS		=	objs
 
 SRCS_NAMES		=	main.c  ft_split.c utils.c get_next_line.c get_next_line_utils.c
 
-SRCS_NAMES_B	=	main.c  misc.c	fork.c 	utils.c
+SRCS_NAMES_B	=	main.c  ft_split.c utils.c get_next_line.c get_next_line_utils.c
 
 OBJS_NAMES		=	${SRCS_NAMES:.c=.o}
 
