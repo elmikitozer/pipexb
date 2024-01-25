@@ -6,7 +6,7 @@
 /*   By: myevou <myevou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 00:45:48 by myevou            #+#    #+#             */
-/*   Updated: 2024/01/24 02:29:54 by myevou           ###   ########.fr       */
+/*   Updated: 2024/01/25 02:23:58 by myevou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,15 @@ void	here_doc(t_args *args, char *delim);
 void	initargs(t_args *args, char **av, char **env, int ac);
 void	ft_error_exit(char *s, t_args *args, int last);
 
+//ENV
+void	get_env(t_args *args, char **envpm);
+char	*pathcmd(char *path, char *cmd);
+void	chose_exec(t_args *args, int i);
+
+//MAIN
+void	*execution(t_args *args, int bool, int i);
+
 // SPLIT
-// char	**ft_split(char const *s, char c);
+char	**ft_split(char const *s, char c);
 
 #endif

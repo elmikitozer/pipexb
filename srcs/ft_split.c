@@ -6,7 +6,7 @@
 /*   By: myevou <myevou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 15:52:23 by myevou            #+#    #+#             */
-/*   Updated: 2024/01/23 03:03:42 by myevou           ###   ########.fr       */
+/*   Updated: 2024/01/25 00:10:45 by myevou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,11 @@ static size_t	count_words(char const *s, char c)
 	i = 0;
 	while (s[i])
 	{
+		if (s[i] == '\'')
+		{
+			while (s[++i] != '\'')
+				words++;
+		}
 		if (s[i] != c && (s[i + 1] == c || s[i + 1] == '\0'))
 			words++;
 		i++;
@@ -28,17 +33,36 @@ static size_t	count_words(char const *s, char c)
 	return (words);
 }
 
-static void	fill_tab(char *new, char const *s, char c)
+static void	fill_tab(char *new, char const *s, int count)
 {
 	size_t	i;
 
 	i = 0;
-	while (s[i] && s[i] != c)
+	while (s[i] && i < (size_t)(count))
 	{
 		new[i] = s[i];
 		i++;
 	}
 	new[i] = '\0';
+}
+
+int	coucount(size_t *index, const char *s, char c)
+{
+	int	count;
+
+	count = 0;
+	if (s[(*index) + count] == '\'')
+	{
+		(*index)++;
+		while (s[(*index) + count] && s[(*index) + count] != '\'')
+			count++;
+	}
+	else
+	{
+		while (s[(*index) + count] && s[(*index) + count] != c)
+			count++;
+	}
+	return (count);
 }
 
 static void	set_mem(char **tab, char const *s, char c)
@@ -51,15 +75,13 @@ static void	set_mem(char **tab, char const *s, char c)
 	i = 0;
 	while (s[index])
 	{
-		count = 0;
-		while (s[index + count] && s[index + count] != c)
-			count++;
+		count = coucount(&index, s, c);
 		if (count > 0)
 		{
 			tab[i] = malloc(sizeof(char) * (count + 1));
 			if (!tab[i])
 				return ;
-			fill_tab(tab[i], (s + index), c);
+			fill_tab(tab[i], (s + index), count);
 			i++;
 			index = index + count;
 		}
@@ -84,3 +106,17 @@ char	**ft_split(char const *s, char c)
 	set_mem(tab, s, c);
 	return (tab);
 }
+
+// int	main(void)
+// {
+// 	int	k;
+
+// 	k = 0;
+// 	while (k < 9)
+// 	{
+// 		printf("split[%d] = %s\n", k,
+			// ft_split("awk '{count++} END {print count}'", ' ')[k]);
+			// 		k++;
+			// 	}
+			// 	return (0);
+			// }

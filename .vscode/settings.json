@@ -5,6 +5,7 @@
 		"pipex_bonus.h": "c",
 		"get_next_line.h": "c",
 		"stdio.h": "c",
-		"libft.h": "c"
+		"libft.h": "c",
+		"ft_printf.h": "c"
 	}
 }

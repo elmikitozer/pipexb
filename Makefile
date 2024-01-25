@@ -16,9 +16,9 @@ DIR_BONUS		=	srcs/
 
 DIR_OBJS		=	objs
 
-SRCS_NAMES		=	main.c  ft_split.c utils.c get_next_line.c get_next_line_utils.c
+SRCS_NAMES		=	main.c env.c ft_split.c utils.c get_next_line.c get_next_line_utils.c
 
-SRCS_NAMES_B	=	main.c  ft_split.c utils.c get_next_line.c get_next_line_utils.c
+SRCS_NAMES_B	=	main.c env.c ft_split.c utils.c get_next_line.c get_next_line_utils.c
 
 OBJS_NAMES		=	${SRCS_NAMES:.c=.o}
 
