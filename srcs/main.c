@@ -6,7 +6,7 @@
 /*   By: myevou <myevou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 02:29:04 by myevou            #+#    #+#             */
-/*   Updated: 2024/01/25 02:28:55 by myevou           ###   ########.fr       */
+/*   Updated: 2024/01/25 15:35:18 by myevou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,19 +49,17 @@ void	*execution(t_args *args, int bool, int i)
 	cmd = ft_split(args->cmds[i], ' ');
 	if (!cmd || !*cmd)
 		return (ft_freetab(cmd), exit(1), NULL);
-	while (bool && args->env[++i])
-		execve(pathcmd(args->env[i], cmd[0]), cmd, NULL);
-	if (!bool)
-	{
-		execve(cmd[0], cmd, NULL);
-		ft_printf("%s: command not fassssssound\n", cmd[0]);
-	}
 	if (bool)
-		ft_printf("%s: command not found\n", cmd[0]);
-	else if (errno == 13)
-		ft_printf("bash: %s: Permission denied\n", cmd[0]);
+	{
+		while (args->env[++i])
+			execve(pathcmd(args->env[i], cmd[0]), cmd, NULL);
+		ft_printf("pipex: %s: command not found\n", cmd[0]);
+	}
 	else
-		ft_printf("bash: %s: No such file or directory\n", cmd[0]);
+	{
+		if (execve(cmd[0], cmd, NULL))
+			ft_printf("pipex: %s: command not found\n", cmd[0]);
+	}
 	ft_freetab(cmd);
 	return (NULL);
 }

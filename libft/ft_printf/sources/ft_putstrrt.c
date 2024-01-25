@@ -6,7 +6,7 @@
 /*   By: myevou <myevou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 16:45:20 by myevou            #+#    #+#             */
-/*   Updated: 2024/01/25 01:32:17 by myevou           ###   ########.fr       */
+/*   Updated: 2024/01/25 15:32:27 by myevou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,12 @@ int	ft_putstrrt(char *str)
 	i = 0;
 	if (!str)
 	{
-		write(1, "(null)", 6);
+		write(2, "(null)", 6);
 		return (6);
 	}
 	while (str[i])
 	{
-		write(1, &str[i], 1);
+		write(2, &str[i], 1);
 		i++;
 	}
 	return (i);
