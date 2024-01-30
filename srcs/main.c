@@ -6,7 +6,7 @@
 /*   By: myevou <myevou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 02:29:04 by myevou            #+#    #+#             */
-/*   Updated: 2024/01/25 15:35:18 by myevou           ###   ########.fr       */
+/*   Updated: 2024/01/30 15:11:06 by myevou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,6 +97,12 @@ int	main(int ac, char **av, char **env)
 {
 	static t_args	args = {0};
 
+	if (ac < 5)
+	{
+		return (ft_printf("must be\
+		./pipex file1 cmd1 cmd2 cmd3 ... cmdn file2"));
+		exit(1);
+	}
 	initargs(&args, av, env, ac);
 	get_env(&args, env);
 	if (!ft_strcmp(av[1], "here_doc"))
